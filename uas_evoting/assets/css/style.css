@@ -1,0 +1,576 @@
+:root {
+    --primary-color: #0d6efd;
+    --primary-hover: #0b5ed7;
+    --success-color: #198754;
+    --danger-color: #dc3545;
+    --light-color: #f8f9fa;
+    --text-color: #333;
+    --border-color: #dee2e6;
+    --body-bg: #f0f2f5;
+    --card-bg: #ffffff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --border-radius: 20px;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--body-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+a:hover {
+    color: var(--primary-hover);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+body:not(.admin-page-body) .page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+body:not(.admin-page-body) .main-content {
+    flex-grow: 1;
+    padding: 2rem 0;
+}
+
+body:not(.admin-page-body) .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+body:not(.admin-page-body) .site-header {
+    background-color: var(--card-bg);
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border-bottom: 1px solid var(--border-color);
+}
+
+body:not(.admin-page-body) .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+body:not(.admin-page-body) .site-title a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+body:not(.admin-page-body) .site-footer {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+body:not(.admin-page-body) .site-footer p {
+    margin:0;
+}
+
+body:not(.admin-page-body) .main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+body:not(.admin-page-body) .page-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+body:not(.admin-page-body) .page-header h1 {
+    font-size: 2rem;
+}
+body:not(.admin-page-body) .page-header:has(p) {
+    text-align: center;
+}
+body:not(.admin-page-body) .candidate-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+body:not(.admin-page-body) .candidate-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    width: 280px;
+    flex-shrink: 0;
+}
+
+body:not(.admin-page-body) .candidate-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+body:not(.admin-page-body) .candidate-number {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: var(--primary-color);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: 2px solid #fff;
+}
+
+body:not(.admin-page-body) .candidate-photo {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+body:not(.admin-page-body) .candidate-info {
+    padding: 1.5rem;
+}
+
+body:not(.admin-page-body) .candidate-name {
+    font-size: 1.25rem;
+}
+
+body:not(.admin-page-body) .back-link {
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+body:not(.admin-page-body) .back-link i {
+    margin-right: 0.5rem;
+}
+
+body:not(.admin-page-body) .candidate-detail-card {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+body:not(.admin-page-body) .candidate-detail-header {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+body:not(.admin-page-body) .candidate-detail-photo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    flex-shrink: 0;
+}
+
+body:not(.admin-page-body) .candidate-detail-main-info p {
+    margin-bottom: 0.5rem;
+}
+
+body:not(.admin-page-body) .candidate-detail-name {
+    font-size: 2rem;
+    margin-top: 0;
+}
+
+body:not(.admin-page-body) .vision-mission-section h3 {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+}
+
+body:not(.admin-page-body) .vote-section {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.login-page-body {
+    background-image: url('../../assets/images/login.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.login-page-body .page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.login-page-body .main-content {
+    flex-grow: 1;
+    padding: 0;
+    display: flex;
+}
+
+.login-page-body .site-header {
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.login-page-body .site-title a {
+    color: var(--primary-color);
+}
+
+.login-page-body .site-footer {
+    background-color: var(--primary-color);
+}
+
+.login-page-body .site-footer p {
+    color: white;
+}
+
+.login-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    width: 100%;
+    max-width: 420px;
+}
+
+.login-card h1 {
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.admin-page-body .admin-layout {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.admin-page-body .admin-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0; 
+    width: 260px;
+    z-index: 1000;
+
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.admin-page-body .admin-sidebar-title {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.admin-page-body .admin-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex-grow: 1;
+}
+
+.admin-page-body .admin-nav a {
+    display: flex;
+    align-items: center;
+    padding: 0.85rem 1.25rem;
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.admin-page-body .admin-nav a:hover {
+    background-color: var(--primary-hover);
+    color: #fff;
+}
+
+.admin-page-body .admin-nav a.active {
+    background-color: #fff;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.admin-page-body .admin-nav i {
+    margin-right: 1rem;
+    width: 20px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.admin-page-body .admin-sidebar-footer .btn-nav {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+}
+
+.admin-page-body .admin-sidebar-footer .btn-nav:hover {
+    background-color: #ffffff;
+    color: var(--primary-color);
+}
+
+.admin-page-body .admin-main-content {
+    flex-grow: 1;
+    padding: 2rem 3rem;
+    overflow-y: auto;
+    margin-left: 260px;
+}
+
+.admin-page-body .admin-main-content .page-header {
+    border: none;
+    padding-bottom: 0;
+    margin-bottom: 2rem;
+}
+
+.admin-page-body .admin-main-content .page-header h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+}
+
+.admin-page-body .admin-main-content .page-header p {
+    color: #6c757d;
+    margin-top: -0.5rem;
+    font-size: 1.1rem;
+}
+
+.admin-page-body .admin-main-content .content-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+}
+
+.admin-page-body .admin-main-content .data-table thead th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.content-card h3 {
+    margin-top: 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    color: #fff;
+}
+
+.btn-secondary {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-hover);
+    color: #fff;
+}
+
+.btn-vote {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.btn-vote:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form-input,
+textarea.form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+}
+
+.form-actions {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-full-width {
+    grid-column: 1 / -1;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.data-table tbody tr:nth-child(even) {
+    background-color: var(--light-color);
+}
+
+.data-table tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+.message {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid transparent;
+    font-weight: 500;
+}
+
+.message.success {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border-color: #badbcc;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #842029;
+    border-color: #f5c2c7;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.3em 0.8em;
+    border-radius: 20px; 
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.status-voted {
+    background-color: #d1e7dd; 
+    color: #0f5132;         
+}
+
+.status-not-voted {
+    background-color: #fff3cd; 
+    color: #664d03;           
+}
+
+@media (max-width: 768px) {
+    body:not(.admin-page-body) .candidate-list {
+        gap: 1rem;
+    }
+
+    body:not(.admin-page-body) .candidate-detail-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    body:not(.admin-page-body) .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    body:not(.admin-page-body) .main-nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+}
